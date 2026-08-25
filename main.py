@@ -8,7 +8,6 @@ from docente import Docente
 def main():
     print("==============================================")
     print("       SISTEMA DE BIBLIOTECA")
-    print("       SEMANA 2 - POO")
     print("==============================================")
 
     biblioteca = Biblioteca(
