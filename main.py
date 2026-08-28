@@ -3,7 +3,8 @@ from libro_fisico import LibroFisico
 from libro_digital import LibroDigital
 from estudiante import Estudiante
 from docente import Docente
-
+from cliente_mayorista import ClienteMayorista
+from cliente_minorista import ClienteMinorista
 
 def main():
     print("==============================================")
@@ -96,6 +97,51 @@ def main():
 
     print("\n===== ESTADO FINAL =====")
     biblioteca.listar_libros()
+
+# ==============================================
+    # SEMANA 3 - POLIMORFISMO
+    # ==============================================
+
+    print("\n==============================================")
+    print("       SEMANA 3 - POLIMORFISMO")
+    print("==============================================")
+
+    cliente_mayorista = ClienteMayorista(
+        "001",
+        "Carlos Mayorista",
+        "carlos@gmail.com"
+    )
+
+    cliente_minorista = ClienteMinorista(
+        "002",
+        "Ana Minorista",
+        "ana@gmail.com"
+    )
+
+    print("\n===== CLIENTES =====")
+
+    print("Cliente mayorista:", cliente_mayorista.get_nombre())
+    print("Cliente minorista:", cliente_minorista.get_nombre())
+
+    print("\n===== CÁLCULO DE DESCUENTOS =====")
+
+    monto = 200.00
+
+    clientes = [
+        cliente_mayorista,
+        cliente_minorista
+    ]
+
+    for cliente in clientes:
+
+        descuento = cliente.calcular_descuento(monto)
+        total = monto - descuento
+
+        print("\nCliente:", cliente.get_nombre())
+        print("Monto:", monto)
+        print("Descuento:", descuento)
+        print("Total a pagar:", total)
+        print("----------------------------------")
 
     print("\n==============================================")
     print("        PROGRAMA FINALIZADO")
