@@ -1,4 +1,4 @@
-# Sistema de Biblioteca - Semana 2
+# Sistema de Biblioteca - Semana 1-2
 
 Proyecto en Python que implementa:
 - Encapsulación con atributos privados y getters/setters.
