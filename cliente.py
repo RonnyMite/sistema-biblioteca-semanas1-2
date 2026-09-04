@@ -1,6 +1,3 @@
-from abc import ABC, abstractmethod
-
-
 class Cliente(ABC):
 
     def __init__(self, cedula, nombre, correo):
