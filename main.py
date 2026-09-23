@@ -5,7 +5,7 @@ from estudiante import Estudiante
 from docente import Docente
 from cliente_mayorista import ClienteMayorista
 from cliente_minorista import ClienteMinorista
-
+from catalogo import Catalogo
 
 def main():
     print("==============================================")
@@ -110,7 +110,129 @@ def main():
     print("\n==============================================")
     print("        PROGRAMA FINALIZADO")
     print("==============================================")
+# ==================================================
+    # SEMANA 5 - COLECCIONES
+    # ==================================================
 
+    print("\n")
+    print("==============================================")
+    print("       SEMANA 5 - COLECCIONES")
+    print("       CATÁLOGO DE LIBROS")
+    print("==============================================")
+
+    catalogo = Catalogo()
+
+    # Agregar los libros que ya fueron creados
+    print("\n===== AGREGANDO LIBROS AL CATÁLOGO =====")
+
+    if catalogo.agregar_libro(libro_fisico):
+        print("Libro L001 agregado correctamente.")
+
+    if catalogo.agregar_libro(libro_digital):
+        print("Libro L002 agregado correctamente.")
+
+    # Crear otro libro utilizando una clase que ya existe
+    libro_fisico2 = LibroFisico(
+        "L003",
+        "Don Quijote de la Mancha",
+        "Miguel de Cervantes",
+        "Editorial Planeta",
+        1605,
+        "Estante B-05",
+        863
+    )
+
+    if catalogo.agregar_libro(libro_fisico2):
+        print("Libro L003 agregado correctamente.")
+
+    # ==========================================
+    # EVITAR DUPLICADOS
+    # ==========================================
+
+    print("\n===== VALIDACIÓN DE DUPLICADOS =====")
+
+    libro_duplicado = LibroFisico(
+        "L001",
+        "Otro libro",
+        "Otro autor",
+        "Otra editorial",
+        2020,
+        "Estante C-01",
+        200
+    )
+
+    if catalogo.agregar_libro(libro_duplicado):
+        print("Libro agregado.")
+    else:
+        print("No se puede agregar: el código L001 ya existe.")
+
+    # ==========================================
+    # LISTAR
+    # ==========================================
+
+    print("\n===== LISTAR CATÁLOGO =====")
+    catalogo.mostrar_catalogo()
+
+    # ==========================================
+    # BUSCAR
+    # ==========================================
+
+    print("\n===== BUSCAR LIBRO =====")
+
+    libro_buscado = catalogo.buscar_libro("L002")
+
+    if libro_buscado:
+        print("Libro encontrado:")
+        print(libro_buscado.obtener_informacion())
+    else:
+        print("Libro no encontrado.")
+
+    # ==========================================
+    # ACTUALIZAR
+    # ==========================================
+
+    print("\n===== ACTUALIZAR LIBRO =====")
+
+    actualizado = catalogo.actualizar_libro(
+        "L002",
+        "El Principito - Edición Especial",
+        "Antoine de Saint-Exupéry",
+        "Salamandra",
+        1943
+    )
+
+    if actualizado:
+        print("Libro actualizado correctamente.")
+    else:
+        print("Libro no encontrado.")
+
+    catalogo.mostrar_catalogo()
+
+    # ==========================================
+    # ELIMINAR
+    # ==========================================
+
+    print("\n===== ELIMINAR LIBRO =====")
+
+    eliminado = catalogo.eliminar_libro("L003")
+
+    if eliminado:
+        print("Libro eliminado correctamente.")
+    else:
+        print("Libro no encontrado.")
+
+    catalogo.mostrar_catalogo()
+
+    # ==========================================
+    # CANTIDAD
+    # ==========================================
+
+    print("\nCantidad de libros en el catálogo:")
+    print(catalogo.cantidad_libros())
+
+    print("\n==============================================")
+    print("       SEMANA 5 FINALIZADA")
+    print("==============================================")
 
 if __name__ == "__main__":
     main()
