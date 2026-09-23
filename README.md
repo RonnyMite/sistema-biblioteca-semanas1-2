@@ -192,3 +192,5 @@ biblioteca_semana1y2_archivos_py/
 │
 ├── main.py
 ├── README.md
+└── requirements.txt
+
