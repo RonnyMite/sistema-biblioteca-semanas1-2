@@ -194,3 +194,14 @@ biblioteca_semana1y2_archivos_py/
 ├── README.md
 └── requirements.txt
 
+## Cómo ejecutar la interfaz gráfica – Semana 6
+
+1. Descargar o clonar este repositorio.
+2. Abrir una terminal dentro de la carpeta del proyecto.
+3. Instalar las dependencias:
+
+python -m pip install -r requirements.txt
+
+4. Ejecutar la interfaz:
+
+python app.py
